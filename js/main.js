@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let tablero = document.getElementById("tablero");
     buscaminas.init("easy");
     buscaminas.mostrar();
+    let h2Banderas = document.getElementsByTagName("h2")[0]
+    h2Banderas.innerHTML = "🚩 " + (buscaminas.getNumeroMinas() - buscaminas.getNumeroBanderas());
 
     for (let i = 0; i < buscaminas.getTableroVista().length; i++) {
         let fila = document.createElement("tr");
@@ -21,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         buscaminas.init(dificultad.value);
         buscaminas.mostrar();
         tablero.innerHTML = "";
+        h2Banderas.innerHTML = "🚩 " + (buscaminas.getNumeroMinas() - buscaminas.getNumeroBanderas());
 
         for (let i = 0; i < buscaminas.getTableroVista().length; i++) {
             let fila = document.createElement("tr");
@@ -77,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             buscaminas.marcar(e.target.dataset.fila, e.target.dataset.columna);
             e.target.innerHTML = buscaminas.getTableroVista()[e.target.dataset.fila][e.target.dataset.columna];
         }
+        h2Banderas.innerHTML = "🚩 " + (buscaminas.getNumeroMinas() - buscaminas.getNumeroBanderas());
     });
 
     tablero.addEventListener("click", function (e) {

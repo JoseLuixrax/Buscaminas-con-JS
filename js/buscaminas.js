@@ -7,11 +7,8 @@ let estado = "Jugando";
 
 const buscaminas = {
     init: function (difficulty) {
-        filas = 0;
-        columnas = 0;
-        minas = 0;
         estado = "Jugando";
-        tablero = []
+        tablero = [];
         tableroVista = [];
         switch (difficulty) {
             case "test":
@@ -206,6 +203,22 @@ const buscaminas = {
         if(this.contarMinasAlrededor() == this.contarBanderasAlreadedor()){
             this.descubrirCasillasAlrededor(f,c);
         }
+    },
+
+    getNumeroBanderas: function(){
+        let numeroBanderas = 0;
+        for (let i = 0; i < filas; i++) {
+            for (let j = 0; j < columnas; j++) {
+                if (tableroVista[i][j] == "🚩") {
+                    numeroBanderas++;
+                }
+            }
+        }
+        return numeroBanderas;
+    },
+
+    getNumeroMinas: function(){
+        return minas;
     }
 }
 
