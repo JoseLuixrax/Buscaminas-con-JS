@@ -28,7 +28,7 @@ const buscaminas = {
                 break;
             case "hard":
                 filas = 30;
-                columnas = 30;
+                columnas = 16;
                 minas = 99;
                 break;
         }
